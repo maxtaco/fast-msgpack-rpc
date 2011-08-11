@@ -50,8 +50,8 @@ class Session
 	#
 	# Calls remote method.
 	# This method is same as call_async(method, *args).get
-	def call(method, *args)
-		send_request(method, args).get
+	def call(method, arg)
+		send_request(method, arg).get
 	end
 
 	# call-seq:
