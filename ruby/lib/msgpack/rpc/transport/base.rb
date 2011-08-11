@@ -21,6 +21,10 @@ module RPC
 
 module MessageReceiver
 	def on_message(msg, *ctx)
+
+		# fast-msgpack-rpc can have numbers for packet lengths
+		return if msg.kind_of? Number;
+
 		case msg[0]
 		when REQUEST
 			on_request(msg[1], msg[2], msg[3], *ctx)

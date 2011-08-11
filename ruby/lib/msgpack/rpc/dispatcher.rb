@@ -35,7 +35,7 @@ class ObjectDispatcher
 		unless @accept.include?(method)
 			raise NoMethodError, "method `#{method}' is not accepted"
 		end
-		@obj.send(method, *param, &block)
+		@obj.send(method, param, &block)
 	end
 end
 

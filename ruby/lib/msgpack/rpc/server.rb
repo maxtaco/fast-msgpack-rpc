@@ -171,6 +171,7 @@ class Responder
 	def result(retval, err = nil)
 		unless @sent
 			data = [RESPONSE, @msgid, err, retval].to_msgpack
+			@sendable.send_data(data.length.to_msgpack)
 			@sendable.send_data(data)
 			@sent = true
 		end
